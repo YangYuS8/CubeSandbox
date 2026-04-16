@@ -5,7 +5,7 @@
 <h1 align="center">CubeSandbox</h1>
 
 <p align="center">
-  <strong>一个极速启动、高并发、安全且轻量化的 AI Agent 沙箱</strong>
+  <strong>一个极速启动、高并发、安全且轻量化的 AI Agent 沙箱服务</strong>
 </p>
 
 <p align="center">
