@@ -3,6 +3,7 @@ name: Build Check
 on:
   push:
     paths:
+      - 'CubeAPI/**'
       - 'CubeMaster/**'
       - 'Cubelet/**'
       - 'CubeShim/**'
@@ -14,6 +15,7 @@ on:
       - 'Makefile'
   pull_request:
     paths:
+      - 'CubeAPI/**'
       - 'CubeMaster/**'
       - 'Cubelet/**'
       - 'CubeShim/**'
@@ -45,6 +47,14 @@ jobs:
       fail-fast: false
       matrix:
         include:
+          - component: CubeAPI
+            build_command: >-
+              mkdir -p /workspace/_output/bin &&
+              cd /workspace/CubeAPI &&
+              cargo build --release --locked &&
+              install -m 0755 /workspace/CubeAPI/target/release/cube-api /workspace/_output/bin/cube-api
+            expected_bins: |
+              _output/bin/cube-api
           - component: CubeMaster
             build_command: >-
               mkdir -p /workspace/_output/bin &&
